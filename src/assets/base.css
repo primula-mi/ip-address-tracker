@@ -1,0 +1,38 @@
+:root {
+
+  --border-radius-base: 0.5rem;
+
+  /* Colors */
+  --color-white: hsl(0, 0%, 100%);
+  --color-very-dark: hsl(0, 0%, 17%);
+  --color-dark-gray: hsl(0, 0%, 59%);
+
+  /* Typography */
+  --font-family: "Rubik", Arial, sans-serif;
+  --font-size-title: 1.5rem;
+  --font-size-input-text: 1.25rem;
+  --fint-weight-normal: 400;
+  --fint-weight-medium: 500;
+  --fint-weight-bold: 700;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: var(--fint-weight-normal);
+}
+
+img {
+  width: 100%;
+}
