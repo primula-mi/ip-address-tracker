@@ -8,28 +8,36 @@ import MapBlock from "@/components/MapBlock.vue";
 
 const titleText = "IP Address Tracker";
 const searchInputPlaceholderText = "Search for any IP address or domain";
-const searchUserIp = (event) => {
-  console.log("event ",event);
-  getUserInfo(event);
-};
 let userInfoBlock = ref(undefined);
 let mapInfo = ref(undefined);
+
+const searchUserIp = async (event) => {
+  const data = await getUserInfo(event);
+  renderComponents(data);
+};
 const getUserInfo = async (ip = "") => {
-    const url = `http://ipwho.is/${ip}`;
-    
-    const data = await sendFetchRequest(url);
-    mapInfo.value = [data.latitude, data.longitude];
-    userInfoBlock.value = data;
-    console.log("data",data);
+  const url = `http://ipwho.is/${ip}`;
+  const result = await sendFetchRequest(url);
+  return result;
 };
 const sendFetchRequest = async (url) => {
-    let result = await fetch(url).then((r) => r.json());
-    return result;
+  const result = await fetch(url).then((r) => r.json());
+  return result;
 };
-onBeforeMount(() => {
-  getUserInfo("132.7.8.8");
-})
-
+const renderMap = (lat, long) => {
+  mapInfo.value = [lat, long];
+}
+const renderUserInfo = (data) => {
+  userInfoBlock.value = data;
+}
+const renderComponents = (data) => {
+  renderMap(data.latitude, data.longitude);
+  renderUserInfo(data);
+}
+onBeforeMount( async () => {
+  const data = await getUserInfo("");
+  renderComponents(data);
+});
 </script>
 
 <template>

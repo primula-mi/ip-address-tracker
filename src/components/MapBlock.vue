@@ -1,40 +1,32 @@
 <script setup>
-// import {LMap, LTileLayer, LMarker, LTooltip } from "leaflet";
-import { onMounted, onUpdated } from 'vue';
-import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import { LMap, LTileLayer, LMarker, LIcon } from "@vue-leaflet/vue-leaflet";
 
 const props = defineProps(['mapData']);
-console.log("mapData: ", props.mapData);
-let mainMap;
-let customIcon = L.icon({
-    iconUrl: '/src/assets/images/icon/icon-location.svg'
-});
-const buildMap = (latitude, longitude) => {
-    
-    mainMap = L.map('map').setView([latitude, longitude], 13);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 15,
-        attribution: '© OpenStreetMap'
-    }).addTo(mainMap);
-    
-    L.marker([latitude, longitude], {icon: customIcon}).addTo(mainMap);
-}
-
-// buildMap(props.mapData[0], props.mapData[1]);
-
-onMounted(() => {
-    buildMap(props.mapData[0], props.mapData[1]);
-});
-onUpdated(() => {
-    mainMap = L.map('map').setView([props.mapData[0], props.mapData[1]], 13);
-    L.marker([props.mapData[0], props.mapData[1]], {icon: customIcon}).addTo(mainMap);
-    // buildMap(props.mapData[0], props.mapData[1]);
-});
-
+const zoom = 15;
+const customIcon = "/src/assets/images/icon/icon-location.svg";
+const staticAnchor = [16, 37];
+const iconSize = [32, 37];
 </script>
+
 <template>
-    <div id="map"></div>
-</template>
+    <div id="map">
+      <l-map ref="map" v-model:zoom="zoom" :center="[props.mapData[0], props.mapData[1]]">
+        <l-tile-layer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          layer-type="base"
+          name="OpenStreetMap"
+        ></l-tile-layer>
+        <l-marker :lat-lng="[props.mapData[0], props.mapData[1]]" >
+            <l-icon
+                :icon-size="iconSize"
+                :icon-anchor="staticAnchor"
+                :icon-url="customIcon" >
+            </l-icon>
+        </l-marker>
+      </l-map>
+    </div>
+  </template>
 
 <style scoped>
     #map  { 

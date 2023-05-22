@@ -1,7 +1,5 @@
 <script setup>
-// import UserInfoItem from "@/components/user-info/UserInfoItem.vue";
 const props = defineProps(["userData"]);
-console.log("userData",props.userData);
 </script>
 <template>
     <div class="user-ip-info">
