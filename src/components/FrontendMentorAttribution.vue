@@ -1,6 +1,6 @@
 <template>
     <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Challenge by <a href="https://www.frontendmentor.io/challenges/ip-address-tracker-I8-0yYAH0" target="_blank">Frontend Mentor</a>. 
         Coded by <a href="https://github.com/primula-mi">Primula.mi</a>.
     </div>
 </template>

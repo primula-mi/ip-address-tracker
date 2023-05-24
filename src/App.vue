@@ -16,7 +16,7 @@ const searchUserIp = async (event) => {
   renderComponents(data);
 };
 const getUserInfo = async (ip = "") => {
-  const url = `http://ipwho.is/${ip}`;
+  const url = `https://ipwho.is/${ip}`;
   const result = await sendFetchRequest(url);
   return result;
 };
@@ -63,6 +63,11 @@ onBeforeMount( async () => {
     z-index: 3;
     padding: 1.25rem;
     background: url(/src/assets/images/bg/pattern-bg-desktop.png) no-repeat top center / cover;
+  }
+  @media(max-width: 375px) {
+    .header {
+      background: url(/ip-address-tracker/src/assets/images/bg/pattern-bg-mobile.png) no-repeat top center / cover;
+    }
   }
   .header .title {
     margin: 0 0 1rem;

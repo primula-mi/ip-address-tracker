@@ -67,7 +67,6 @@ const props = defineProps(["userData"]);
     display: flex;
     flex-direction: column;
     width: calc(100% / 4);
-    /* padding: 0 1rem; */
 }
 @media(max-width: 375px) {
     .user-ip-info__item {
@@ -95,22 +94,22 @@ const props = defineProps(["userData"]);
 }
 @media(max-width: 776px) {
     .user-ip-info__text {
-        font-size: 0.9rem
+        font-size: 0.9rem;
     }
 }
 @media(max-width: 576px) {
     .user-ip-info__text {
-        font-size: 0.8rem
+        font-size: 0.8rem;
     }
 }
 @media(max-width: 476px) {
     .user-ip-info__text {
-        font-size: 0.7rem
+        font-size: 0.7rem;
     }
 }
 @media(max-width: 375px) {
     .user-ip-info__text {
-        font-size: 1rem
+        font-size: 1rem;
     }
 }
 </style>

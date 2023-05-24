@@ -1,10 +1,10 @@
 <script setup>
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LMarker, LIcon } from "@vue-leaflet/vue-leaflet";
+import customIcon from '@/assets/images/icon/icon-location.svg'
 
 const props = defineProps(['mapData']);
 const zoom = 15;
-const customIcon = "/src/assets/images/icon/icon-location.svg";
 const staticAnchor = [16, 37];
 const iconSize = [32, 37];
 </script>
