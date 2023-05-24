@@ -66,7 +66,7 @@ onBeforeMount( async () => {
   }
   @media(max-width: 375px) {
     .header {
-      background: url(/ip-address-tracker/src/assets/images/bg/pattern-bg-mobile.png) no-repeat top center / cover;
+      background: url(/src/assets/images/bg/pattern-bg-desktop.png) no-repeat top center / cover;
     }
   }
   .header .title {
