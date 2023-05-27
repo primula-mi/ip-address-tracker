@@ -22,6 +22,13 @@
     border-radius: var(--border-radius-base);
     text-align: center;
 }
+@media(max-width: 375px) {
+    .notification {
+        margin: -5% 10%;
+        right: 0;
+        left: 0;
+    }
+  }
 .error {
     background: #ff6347;
 }
